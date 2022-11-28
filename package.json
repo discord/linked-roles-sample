@@ -4,7 +4,7 @@
   "private": "true",
   "type": "module",
   "engines": {
-    "node": ">=18"
+    "node": ">=16"
   },
   "description": "A very simple example of a Verified Role bot for Discord.",
   "main": "server.js",
@@ -18,6 +18,7 @@
   "dependencies": {
     "cookie-parser": "^1.4.6",
     "express": "^4.18.2",
-    "nconf": "^0.12.0"
+    "nconf": "^0.12.0",
+    "node-fetch": "^3.3.0"
   }
 }

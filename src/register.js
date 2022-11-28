@@ -1,3 +1,5 @@
+import fetch from 'node-fetch';
+
 /**
  * Register the metadata to be stored by Discord. This should be a one time action.
  * Note: uses a Bot token for authentication, not a user token.
