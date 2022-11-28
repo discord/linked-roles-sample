@@ -1,0 +1,23 @@
+{
+  "name": "verified-role-bot",
+  "version": "1.0.0",
+  "private": "true",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "description": "A very simple example of a Verified Role bot for Discord.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Justin Beckwith <justin.beckwith@discordapp.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "nconf": "^0.12.0"
+  }
+}
