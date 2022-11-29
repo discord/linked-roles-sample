@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import config from './config.js';
 
 /**
  * Register the metadata to be stored by Discord. This should be a one time action.
@@ -8,19 +9,19 @@ const url = `https://discord.com/api/v10/applications/${config.DISCORD_CLIENT_ID
 // supported types: number_lt=1, number_gt=2, number_eq=3 number_neq=4, datetime_lt=5, datetime_gt=6, boolean_eq=7
 const body = [
   {
-    key: 'cookiesEaten',
+    key: 'cookieseaten',
     name: 'Cookies Eaten',
     description: 'Cookies Eaten Greater Than',
     type: 2,
   },
   {
-    key: 'allergicToNuts',
+    key: 'allergictonuts',
     name: 'Allergic To Nuts',
     description: 'Is Allergic To Nuts',
     type: 7,
   },
   {
-    key: 'bakingSince',
+    key: 'bakingsince',
     name: 'Baking Since',
     description: 'Days since baking their first cookie',
     type: 6,
@@ -37,7 +38,9 @@ const response = await fetch(url, {
 });
 if (response.ok) {
   const data = await response.json();
-  return data;
+  console.log(data);
 } else {
-  throw new Error(`Error pushing discord metadata schema: [${response.status}] ${response.statusText}`);
+  //throw new Error(`Error pushing discord metadata schema: [${response.status}] ${response.statusText}`);
+  const data = await response.text();
+  console.log(data);
 }

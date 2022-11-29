@@ -70,6 +70,9 @@ app.get('/verified-role', async (req, res) => {
       expires_at: Date.now() + tokens.expires_in * 1000,
     });
 
+    // 3. Update the users metadata, assuming future updates will be posted to the `/update-metadata` endpoint
+    await updateMetadata(userId);
+
     res.send('You did it!  Now go back to Discord.');
   } catch (e) {
     console.error(e);
@@ -79,44 +82,51 @@ app.get('/verified-role', async (req, res) => {
 
 /**
  * Example route that would be invoked when an external data source changes. 
- * 1. Fetch the Discord tokens from storage
- * 2. Fetch the data from an external source 
- * 3. 
+ * This example calls a common `updateMetadata` method that pushes static
+ * data to Discord.
  */
  app.post('/update-metadata', async (req, res) => {
   try {
-    // 1. Fetch the Discord tokens from storage
     const userId = req.body.userId;
-    const tokens = await storage.getDiscordTokens(userId);
-      
-    let metadata = {};
-    try {
-      // Fetch the new metadata you want to use from an external source. 
-      // This data could be POST-ed to this endpoint, but every service
-      // is going to be different.  To keep the example simple, we'll
-      // just generate some random data. 
-      metadata = {
-        cookiesEaten: 1483,
-        allergicToNuts: false,
-        firstCookieBaked: '2003-12-20',
-      };
-    } catch (e) {
-      e.message = `Error fetching external data: ${e.message}`;
-      console.error(e);
-      // If fetching the profile data for the external service fails for any reason,
-      // ensure metadata on the Discord side is nulled out. This prevents cases
-      // where the user revokes an external app permissions, and is left with
-      // stale verified role data.
-    }
-
-    // Push the data to Discord.
-    await discord.pushMetadata(userId, tokens, metadata);
+    await updateMetadata(userId)
 
     res.sendStatus(204);
   } catch (e) {
     res.sendStatus(500);
   }
 });
+
+/**
+ * Given a Discord UserId, push static make-believe data to the Discord 
+ * metadata endpoint. 
+ */
+async function updateMetadata(userId) {
+  // Fetch the Discord tokens from storage
+  const tokens = await storage.getDiscordTokens(userId);
+    
+  let metadata = {};
+  try {
+    // Fetch the new metadata you want to use from an external source. 
+    // This data could be POST-ed to this endpoint, but every service
+    // is going to be different.  To keep the example simple, we'll
+    // just generate some random data. 
+    metadata = {
+      cookiesEaten: 1483,
+      allergicToNuts: false,
+      firstCookieBaked: '2003-12-20',
+    };
+  } catch (e) {
+    e.message = `Error fetching external data: ${e.message}`;
+    console.error(e);
+    // If fetching the profile data for the external service fails for any reason,
+    // ensure metadata on the Discord side is nulled out. This prevents cases
+    // where the user revokes an external app permissions, and is left with
+    // stale verified role data.
+  }
+
+  // Push the data to Discord.
+  await discord.pushMetadata(userId, tokens, metadata);
+}
 
 
 const port = process.env.PORT || 3000;

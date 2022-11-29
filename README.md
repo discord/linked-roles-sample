@@ -110,7 +110,37 @@ DISCORD_REDIRECT_URI: https://<your-project-name>.glitch.me/discord-oauth-callba
 COOKIE_SECRET: <random generated UUID>
 ```
 
-### Registering 
+### Registering your metadata schema
+As a one time step, you must tell Discord which metadata fields you are going to use for your verified role. Eventually, users will be presented a dialog like this:
+
+![Verification Setup](assets/verification-setup.png "Verification Setup")
+
+The code for configuring this metadata is in [src/register.js](), and it is meant to be run as a command line application.  Go back to glitch, click the terminal tab, and run the following command:
+
+```
+$ node src/register.js
+```
+
+![Register Metadata Schema](assets/register.png "Register Metadata Schema")
+
+
+## Try it out
+Now that you've built your bot, let's give it a try both from the server owner and the user's perspective.
+
+### Creating the verified role
+To try out our bot, we're going to create a verified role in a server where you have admin permissions.  Open up the server settings, select roles, and click on `Create Role`.  Give the role a name, save it, then click on `Verification`.  Click the `Add verification` button, and you should see your bot in the list of available Apps.  Click on it, and you will see a setup screen where you can configure specific criteria for your role.
+
+![Verification Setup](assets/verification-setup.png "Verification Setup")
+
+### Acquiring the role
+To acquire your newly created role, click the server name in the upper left corner of the screen, and select `Verified Roles`.  Click on your role, and it will present the opportunity to connect your account.
+
+![Connect accounts](assets/connect-account.png "Connect accounts")
+
+Click on the verified role criteria. This should lead to the Discord OAuth2 consent screen.  Click `Authorize`, and then return to Discord.  
+
+![Consent Dialog](assets/consent-dialog.png "Consent Dialog")
+
 
 ## Preparing the code
 ```
