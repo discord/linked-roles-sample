@@ -1,9 +1,8 @@
-
 # Discord Verified Role Bot Example
 This repository contains the documentation and example for a verified role bot.
 
 ## Creating an App
-The first thing we’ll need to do is create an app. Navigate to the developer dashboard, then click New Application in the upper right corner.
+The first thing we’ll need to do is create an app. Navigate to the [developer dashboard](https://discord.com/developers/applications), then click New Application in the upper right corner.
 
 ![Create Application](assets/create-app.png "Create Application")
 
@@ -89,7 +88,7 @@ Now, we need to set the Redirect Url that will be used for our OAuth2 flow.  Go 
 
 Go back to the OAuth2 -> General tab in the Discord developer portal, and add a new redirect for your app using the Glitch url and the `/discord-oauth-callback` route.  Copy this full url, and paste it as `DISCORD_REDIRECT_URI` into your `.env` as well.  
 
-Go to the General Information tab in the developer portal, and scroll down to the `Verified Roles Verification Url` field. Paste the base url to your glitch service, and save:
+Go to the General Information tab in the developer portal, and scroll down to the `Verified Roles Verification Url` field. Paste the base url to your glitch service, add the `/verified-role` route, and save:
 
 ![Verify endpoint](assets/verify-endpoint.png "Verify endpoint")
 
@@ -111,11 +110,7 @@ COOKIE_SECRET: <random generated UUID>
 ```
 
 ### Registering your metadata schema
-As a one time step, you must tell Discord which metadata fields you are going to use for your verified role. Eventually, users will be presented a dialog like this:
-
-![Verification Setup](assets/verification-setup.png "Verification Setup")
-
-The code for configuring this metadata is in [src/register.js](), and it is meant to be run as a command line application.  Go back to glitch, click the terminal tab, and run the following command:
+As a one time step, you must tell Discord which metadata fields you are going to use for your verified role. The code for configuring this metadata is in [src/register.js](), and it is meant to be run as a command line application.  Go back to glitch, click the terminal tab, and run the following command:
 
 ```
 $ node src/register.js
@@ -147,10 +142,10 @@ After returning to Discord, you should see a confirmed verified role.
 
 Finally, create a new private channel, and add the new verified role.
 
-# Tips & Tricks
+## Tips & Tricks
 
-## Token storage
+### Token storage
 This bot largely relies on Discord's [OAuth2](https://discord.com/developers/docs/topics/oauth2) implementation to obtain access tokens. This model of user based authentication relies on storing refresh tokens, and using them to acquire access tokens.  The example code in [src/storage.js](src/storage.js) uses in-memory storage to manage these tokens, but for any production deployment a database with persistent storage should be used. 
 
-## Advanced examples
+### Advanced examples
 For a more complex example, see https://github.com/JustinBeckwith/fitbit-discord-bot/.
