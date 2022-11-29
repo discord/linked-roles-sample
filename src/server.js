@@ -111,9 +111,9 @@ async function updateMetadata(userId) {
     // is going to be different.  To keep the example simple, we'll
     // just generate some random data. 
     metadata = {
-      cookiesEaten: 1483,
-      allergicToNuts: false,
-      firstCookieBaked: '2003-12-20',
+      cookieseaten: 1483,
+      allergictonuts: false,
+      firstcookiebaked: '2003-12-20',
     };
   } catch (e) {
     e.message = `Error fetching external data: ${e.message}`;
@@ -133,5 +133,3 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
-
-
