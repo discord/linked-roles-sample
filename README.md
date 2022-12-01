@@ -1,5 +1,5 @@
-# Discord Verified Role Bot Example
-This repository contains the documentation and example for a verified role bot.
+# Discord Linked Role Bot Example
+This repository contains the documentation and example for a linked role bot.
 
 ## Creating an App
 The first thing we’ll need to do is create an app. Navigate to the [developer dashboard](https://discord.com/developers/applications), then click New Application in the upper right corner.
@@ -8,7 +8,7 @@ The first thing we’ll need to do is create an app. Navigate to the [developer 
 
 Enter a name for your app, then click Create.
 
-Once you create an app, you'll land on the General Overview page of the app's settings. Here you can view and configure basic information about the app, like its description and icon. You’ll also see an Application ID and Verified Roles Verification URL, which we’ll use a bit later in the guide.
+Once you create an app, you'll land on the General Overview page of the app's settings. Here you can view and configure basic information about the app, like its description and icon. You’ll also see an Application ID and Linked Roles Verification URL, which we’ll use a bit later in the guide.
 
 ### Configuring a bot
 Next we'll add a bot user to your app, which allows it to appear in Discord similar to other members. On the left hand sidebar click Bot, then the Add Bot button.
@@ -40,7 +40,7 @@ After installing your app, you can head over to your server and see that it has 
 With your app configured and installed, let’s start developing it.
 
 ## Running your app
-All of the code used in the example app can be found in the [Github repository](https://github.com/JustinBeckwith/verified-role-bot).
+All of the code used in the example app can be found in the [Github repository](https://github.com/JustinBeckwith/linked-role-bot).
 
 
 ### Remix the project
@@ -48,7 +48,7 @@ This guide uses Glitch, which allows you to quickly clone and develop an app fro
 
 > While Glitch is great for development and testing, [it has technical limitations](https://help.glitch.com/kb/article/17-technical-restrictions/) so other hosting providers should be considered for production apps.
 
-To start, [remix (or clone) the Glitch project 🎏](https://glitch.com/edit/#!/remix/verified-role-discord-bot)
+To start, [remix (or clone) the Glitch project 🎏](https://glitch.com/edit/#!/remix/linked-role-discord-bot)
 
 When you remix the project, you'll see a new Glitch project with a unique name similar to this:
 
@@ -88,7 +88,7 @@ Now, we need to set the Redirect Url that will be used for our OAuth2 flow.  Go 
 
 Go back to the OAuth2 -> General tab in the Discord developer portal, and add a new redirect for your app using the Glitch url and the `/discord-oauth-callback` route.  Copy this full url, and paste it as `DISCORD_REDIRECT_URI` into your `.env` as well.  
 
-Go to the General Information tab in the developer portal, and scroll down to the `Verified Roles Verification Url` field. Paste the base url to your glitch service, add the `/verified-role` route, and save:
+Go to the General Information tab in the developer portal, and scroll down to the `Linked Roles Verification Url` field. Paste the base url to your glitch service, add the `/linked-role` route, and save:
 
 ![Verify endpoint](assets/verify-endpoint.png "Verify endpoint")
 
@@ -110,7 +110,7 @@ COOKIE_SECRET: <random generated UUID>
 ```
 
 ### Registering your metadata schema
-As a one time step, you must tell Discord which metadata fields you are going to use for your verified role. The code for configuring this metadata is in [src/register.js](), and it is meant to be run as a command line application.  Go back to glitch, click the terminal tab, and run the following command:
+As a one time step, you must tell Discord which metadata fields you are going to use for your linked role. The code for configuring this metadata is in [src/register.js](), and it is meant to be run as a command line application.  Go back to glitch, click the terminal tab, and run the following command:
 
 ```
 $ node src/register.js
@@ -122,25 +122,25 @@ $ node src/register.js
 ## Try it out
 Now that you've built your bot, let's give it a try both from the server owner and the user's perspective.
 
-### Creating the verified role
-To try out our bot, we're going to create a verified role in a server where you have admin permissions.  Open up the server settings, select roles, and click on `Create Role`.  Give the role a name, save it, then click on `Verification`.  Click the `Add verification` button, and you should see your bot in the list of available Apps.  Click on it, and you will see a setup screen where you can configure specific criteria for your role.
+### Creating the linked role
+To try out our bot, we're going to create a linked role in a server where you have admin permissions.  Open up the server settings, select roles, and click on `Create Role`.  Give the role a name, save it, then click on `Verification`.  Click the `Add verification` button, and you should see your bot in the list of available Apps.  Click on it, and you will see a setup screen where you can configure specific criteria for your role.
 
 ![Verification Setup](assets/verification-setup.png "Verification Setup")
 
 ### Acquiring the role
-To acquire your newly created role, click the server name in the upper left corner of the screen, and select `Verified Roles`.  Click on your role, and it will present the opportunity to connect your account.
+To acquire your newly created role, click the server name in the upper left corner of the screen, and select `Linked Roles`.  Click on your role, and it will present the opportunity to connect your account.
 
 ![Connect accounts](assets/connect-account.png "Connect accounts")
 
-Click on the verified role criteria. This should lead to the Discord OAuth2 consent screen.  Click `Authorize`, and then return to Discord.  
+Click on the linked role criteria. This should lead to the Discord OAuth2 consent screen.  Click `Authorize`, and then return to Discord.  
 
 ![Consent Dialog](assets/consent-dialog.png "Consent Dialog")
 
-After returning to Discord, you should see a confirmed verified role.
+After returning to Discord, you should see a confirmed linked role.
 
 ![Connected](assets/connected.png "Connected")
 
-Finally, create a new private channel, and add the new verified role.
+Finally, create a new private channel, and add the new linked role.
 
 ## Tips & Tricks
 

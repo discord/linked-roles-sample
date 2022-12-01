@@ -1,12 +1,12 @@
 {
-  "name": "verified-role-bot",
+  "name": "linked-role-bot",
   "version": "1.0.0",
   "private": "true",
   "type": "module",
   "engines": {
     "node": ">=16"
   },
-  "description": "A very simple example of a Verified Role bot for Discord.",
+  "description": "A very simple example of a Linked Role bot for Discord.",
   "main": "server.js",
   "scripts": {
     "start": "node src/server.js",
