@@ -88,7 +88,7 @@ Now, we need to set the Redirect Url that will be used for our OAuth2 flow.  Go 
 
 Go back to the OAuth2 -> General tab in the Discord developer portal, and add a new redirect for your app using the Glitch url and the `/discord-oauth-callback` route.  Copy this full url, and paste it as `DISCORD_REDIRECT_URI` into your `.env` as well.  
 
-Go to the General Information tab in the developer portal, and scroll down to the `Linked Roles Verification Url` field. Paste the base url to your glitch service, add the `/linked-role` route, and save:
+Go to the General Information tab in the developer portal, and scroll down to the `Linked Roles Verification Url` field. Paste the base url to your glitch service, add the `/verified-role` route, and save:
 
 ![Verify endpoint](assets/verify-endpoint.png "Verify endpoint")
 
