@@ -15,7 +15,7 @@ Next we'll add a bot user to your app, which allows it to appear in Discord simi
 
 Once you create a bot, you’ll have an option to update its icon and username. Under that, there’s a Token section with a Reset Token button.
 
-![Configure bot](assets/configure-bot.png "Configure bot")
+![Configure Bot](assets/configure-bot.png "Configure bot")
 
 Bot tokens are used to authorize API requests and carry all of your bot user’s permissions, making them highly sensitive. Make sure to never share your token or check it into any kind of version control.
 
@@ -26,9 +26,9 @@ Apps need approval from installing users to perform actions inside of Discord (l
 
 For now, we only need the `bot` scope. 
 
-![Configure scopes](assets/oauth-url.png "Configure scopes")
+![Configure Scopes](assets/oauth-url.png "Configure scopes")
 
-See a list of all [OAuth2 scopes](https://discord.com/developers/docs/topics/oauth2#shared-resources-oauth2-scopes), or read more on [user permissions](https://discord.com/developers/docs/topics/permissions) in the documentation.
+See a list of all [OAuth2 Scopes](https://discord.com/developers/docs/topics/oauth2#shared-resources-oauth2-scopes), or read more on [user permissions](https://discord.com/developers/docs/topics/permissions) in the documentation.
 
 Once you add scopes, you should see a URL that you can copy to install your app.
 
@@ -54,18 +54,18 @@ When you remix the project, you'll see a new Glitch project with a unique name s
 
 ![Glitch Remix](assets/glitch.png "Glitch Remix")
 
-#### Project structure
+#### Project Structure
 All of the files for the project are on the left-hand side. Here's a quick glimpse at the structure:
 
 ```
-├── assets      -> images used in this tutorial
+├── assets - Images used on the README file
 ├── src
-│   ├── config.js   -> Parsing of local configuration
-│   ├── discord.js  -> Discord specific auth & API wrapper
-│   ├── register.js -> Tool to register the metadata schema
-│   ├── server.js   -> Main entry point for the application
-│   ├── storage.js  -> Provider for storing OAuth2 tokens
-├── .env -> your credentials and IDs
+│   ├── config.js - Parsing of local configuration
+│   ├── discord.js - Discord specific auth & API wrapper
+│   ├── register.js - Tool to register the metadata schema
+│   ├── server.js - Main entry point for the application
+│   ├── storage.js - Provider for storing OAuth2 tokens
+├── .env - Your secrets, such as bot token
 ├── .gitignore
 ├── package.json
 └── README.md
@@ -90,7 +90,7 @@ Go back to the OAuth2 -> General tab in the Discord developer portal, and add a 
 
 Go to the General Information tab in the developer portal, and scroll down to the `Linked Roles Verification Url` field. Paste the base url to your glitch service, add the `/linked-role` route, and save:
 
-![Verify endpoint](assets/verify-endpoint.png "Verify endpoint")
+![Verify Endpoint](assets/verify-endpoint.png "Verify Endpoint")
 
 Finally, to generate a unique cookie secret, go back to glitch, and click on the `Terminal` tab. Run the following commands:
 
@@ -118,7 +118,6 @@ $ node src/register.js
 
 ![Register Metadata Schema](assets/register.png "Register Metadata Schema")
 
-
 ## Try it out
 Now that you've built your bot, let's give it a try both from the server owner and the user's perspective.
 
@@ -130,7 +129,7 @@ To try out our bot, we're going to create a linked role in a server where you ha
 ### Acquiring the role
 To acquire your newly created role, click the server name in the upper left corner of the screen, and select `Linked Roles`.  Click on your role, and it will present the opportunity to connect your account.
 
-![Connect accounts](assets/connect-account.png "Connect accounts")
+![Connect Accounts](assets/connect-account.png "Connect accounts")
 
 Click on the linked role criteria. This should lead to the Discord OAuth2 consent screen.  Click `Authorize`, and then return to Discord.  
 
@@ -144,8 +143,8 @@ Finally, create a new private channel, and add the new linked role.
 
 ## Tips & Tricks
 
-### Token storage
+### Token Storage
 This bot largely relies on Discord's [OAuth2](https://discord.com/developers/docs/topics/oauth2) implementation to obtain access tokens. This model of user based authentication relies on storing refresh tokens, and using them to acquire access tokens.  The example code in [src/storage.js](src/storage.js) uses in-memory storage to manage these tokens, but for any production deployment a database with persistent storage should be used. 
 
-### Advanced examples
+### Advanced Examples
 For a more complex example, see https://github.com/JustinBeckwith/fitbit-discord-bot/.
