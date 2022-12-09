@@ -52,7 +52,7 @@ DISCORD_REDIRECT_URI: https://<your-project-url>/discord-oauth-callback
 COOKIE_SECRET: <random generated UUID>
 ```
 
-For the UUID (`COOKIE_SECRET`, you can run the following commands:
+For the UUID (`COOKIE_SECRET`), you can run the following commands:
 
 ```
 $ node
@@ -61,14 +61,14 @@ crypto.randomUUID()
 
 Copy and paste the value into your `.env` file.
 
-Fetching credentials is covered in detail in the [linked roles tutorial](https://discord.com/developers/docs/getting-started).
+Fetching credentials is covered in detail in the [linked roles tutorial](https://discord.com/developers/docs/tutorials/configuring-app-metadata-for-linked-roles).
 
 ### Running your app
 
 After your credentials are added, you can run your app:
 
 ```
-$ node app.js
+$ node server.js
 ```
 
 And, just once, you need to register you connection metadata schema. In a new window, run:
@@ -102,9 +102,9 @@ Connections                  ttl     opn     rt1     rt5     p50     p90
 
 Copy the forwarding address that starts with `https`, in this case `https://1234-someurl.ngrok.io`, then go to your [app's settings](https://discord.com/developers/applications).
 
-On the **General Information** tab, there will be an **Linked Roles Verification URL**. Paste your ngrok address there, and append `/discord-oauth-callback` to it (`https://1234-someurl.ngrok.io/discord-oauth-callback` in the example).
+On the **General Information** tab, there will be an **Linked Roles Verification URL**. Paste your ngrok address there, and append `/linked-role` (`https://1234-someurl.ngrok.io/linked-role` in the example).
 
-Copy this URL into the `DISCORD_REDIRECT_URI` environment variable (in your `.env` file) as well.
+You should also paste your ngrok address into the `DISCORD_REDIRECT_URI` variable in your `.env` file, with `/discord-oauth-callback` appended (`https://1234-someurl.ngrok.io/discord-oauth-callback` in the example).
 
 Click **Save Changes** and restart your app.
 
