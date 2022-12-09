@@ -123,7 +123,7 @@ $ node src/register.js
 Now that you've built your bot, let's give it a try both from the server owner and the user's perspective.
 
 ### Creating the linked role
-To try out our bot, we're going to create a linked role in a server where you have admin permissions.  Open up the server settings, select roles, and click on `Create Role`.  Give the role a name, save it, then click on `Verification`.  Click the `Add verification` button, and you should see your bot in the list of available Apps.  Click on it, and you will see a setup screen where you can configure specific criteria for your role.
+To try out our bot, we're going to create a linked role in a server where you have admin permissions.  Open up the server settings, select roles, and click on `Create Role`.  Give the role a name, save it, then click on `Links`.  Click the `Add requirement` button, and you should see your bot in the list of available Apps.  Click on it, and you will see a setup screen where you can configure specific criteria for your role.
 
 ![Verification Setup](assets/verification-setup.png "Verification Setup")
 

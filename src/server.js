@@ -25,7 +25,7 @@ import * as storage from './storage.js';
  * To start the flow, generate the OAuth2 consent dialog url for Discord, 
  * and redirect the user there.
  */
-app.get('/verified-role', async (req, res) => {
+app.get('/linked-role', async (req, res) => {
   const { url, state } = discord.getOAuthUrl();
 
   // Store the signed state param in the user's cookies so we can verify
@@ -121,7 +121,7 @@ async function updateMetadata(userId) {
     // If fetching the profile data for the external service fails for any reason,
     // ensure metadata on the Discord side is nulled out. This prevents cases
     // where the user revokes an external app permissions, and is left with
-    // stale verified role data.
+    // stale linked role data.
   }
 
   // Push the data to Discord.
