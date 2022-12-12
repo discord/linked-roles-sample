@@ -1,4 +1,11 @@
 import nconf from 'nconf';
+import * as dotenv from 'dotenv'
+
+/**
+ * Load environment variables from a .env file, if it exists.
+ */
+
+dotenv.config()
 
 /**
  * Parse configuration data from either environment variables, command line
