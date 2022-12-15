@@ -32,7 +32,7 @@ export function getOAuthUrl() {
 
 /**
  * Given an OAuth2 code from the scope approval page, make a request to Discord's
- * OAuth2 service to retreive an access token, refresh token, and expiration.
+ * OAuth2 service to retrieve an access token, refresh token, and expiration.
  */
 export async function getOAuthTokens(code) {
   const url = 'https://discord.com/api/v10/oauth2/token';
