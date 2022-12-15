@@ -104,7 +104,7 @@ Copy the forwarding address that starts with `https`, in this case `https://1234
 
 On the **General Information** tab, there will be an **Linked Roles Verification URL**. Paste your ngrok address there, and append `/linked-role` (`https://1234-someurl.ngrok.io/linked-role` in the example).
 
-You should also paste your ngrok address into the `DISCORD_REDIRECT_URI` variable in your `.env` file, with `/discord-oauth-callback` appended (`https://1234-someurl.ngrok.io/discord-oauth-callback` in the example).
+You should also paste your ngrok address into the `DISCORD_REDIRECT_URI` variable in your `.env` file, with `/discord-oauth-callback` appended (`https://1234-someurl.ngrok.io/discord-oauth-callback` in the example). Then go to the **General** tab under **OAuth2** in your [app's settings](https://discord.com/developers/applications), and add that same address to the list of **Redirects**.
 
 Click **Save Changes** and restart your app.
 
