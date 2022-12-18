@@ -130,6 +130,11 @@ async function updateMetadata(userId) {
 
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+
+app.listen(port, (error) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log(`The app is now listening on port ${port}`);
+  }
 });
