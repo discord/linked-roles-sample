@@ -112,3 +112,4 @@ Click **Save Changes** and restart your app.
 - Read **[the tutorial](https://discord.com/developers/docs/tutorials/configuring-app-metadata-for-linked-roles)** for in-depth information.
 - Browse https://github.com/JustinBeckwith/fitbit-discord-bot/ for a more in-depth example using the Fitbit API
 - Join the **[Discord Developers server](https://discord.gg/discord-developers)** to ask questions about the API, attend events hosted by the Discord API team, and interact with other devs.
+- Browse https://github.com/jadnast/discord-linked-roles for for example in **Python**
