@@ -82,7 +82,6 @@ export async function getAccessToken(userId, tokens) {
     });
     if (response.ok) {
       const tokens = await response.json();
-      tokens.access_token = tokens.access_token;
       tokens.expires_at = Date.now() + tokens.expires_in * 1000;
       await storage.storeDiscordTokens(userId, tokens);
       return tokens.access_token;
@@ -116,7 +115,7 @@ export async function getUserData(tokens) {
  * of the current user.
  */
 export async function pushMetadata(userId, tokens, metadata) {
-  // GET/PUT /users/@me/applications/:id/role-connection
+  // PUT /users/@me/applications/:id/role-connection
   const url = `https://discord.com/api/v10/users/@me/applications/${config.DISCORD_CLIENT_ID}/role-connection`;
   const accessToken = await getAccessToken(userId, tokens);
   const body = {
@@ -141,7 +140,7 @@ export async function pushMetadata(userId, tokens, metadata) {
  * in user, for this specific bot.
  */
 export async function getMetadata(userId, tokens) {
-  // GET/PUT /users/@me/applications/:id/role-connection
+  // GET /users/@me/applications/:id/role-connection
   const url = `https://discord.com/api/v10/users/@me/applications/${config.DISCORD_CLIENT_ID}/role-connection`;
   const accessToken = await getAccessToken(userId, tokens);
   const response = await fetch(url, {
