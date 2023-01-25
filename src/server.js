@@ -73,7 +73,7 @@ app.get('/linked-role', async (req, res) => {
     // 3. Update the users metadata, assuming future updates will be posted to the `/update-metadata` endpoint
     await updateMetadata(userId);
 
-    res.send('You did it!  Now go back to Discord.');
+    res.send('You did it! Now go back to Discord.');
   } catch (e) {
     console.error(e);
     res.sendStatus(500);
