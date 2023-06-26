@@ -113,7 +113,7 @@ async function updateMetadata(userId) {
     metadata = {
       cookieseaten: 1483,
       allergictonuts: 0, // 0 for false, 1 for true
-      firstcookiebaked: '2003-12-20',
+      bakingsince: '2003-12-20',
     };
   } catch (e) {
     e.message = `Error fetching external data: ${e.message}`;
