@@ -4,10 +4,10 @@
   "private": "true",
   "type": "module",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "description": "A very simple example of a Linked Role bot for Discord.",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,7 +18,6 @@
   "dependencies": {
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "node-fetch": "^3.3.2"
+    "express": "^4.19.2"
   }
 }

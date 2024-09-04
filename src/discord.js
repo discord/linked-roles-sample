@@ -1,5 +1,4 @@
 import crypto from 'crypto';
-import fetch from 'node-fetch';
 
 import * as storage from './storage.js';
 import config from './config.js';
