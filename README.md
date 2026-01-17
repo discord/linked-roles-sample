@@ -1,6 +1,6 @@
 # Linked Role example app
 
-This repository contains the documentation and example for a linked role
+This repository contains the documentation and example for a linked role bot.
 
 ## Project structure
 All of the files for the project are on the left-hand side. Here's a quick glimpse at the structure:
