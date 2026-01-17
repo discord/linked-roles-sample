@@ -1,8 +1,6 @@
 # Linked Role example app
 
-This repository contains the documentation and example for a linked role bot.
-
-> ❇️ A version of this code is also hosted [on Glitch 🎏](https://glitch.com/edit/#!/linked-role-discord-bot)
+This repository contains the documentation and example for a linked role
 
 ## Project structure
 All of the files for the project are on the left-hand side. Here's a quick glimpse at the structure:
