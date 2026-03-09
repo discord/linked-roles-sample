@@ -11,6 +11,7 @@ import * as storage from './storage.js';
 
  const app = express();
  app.use(cookieParser(config.COOKIE_SECRET));
+ app.use(express.json());
 
  /**
   * Just a happy little route to show our server is up.
@@ -103,6 +104,10 @@ app.get('/linked-role', async (req, res) => {
 async function updateMetadata(userId) {
   // Fetch the Discord tokens from storage
   const tokens = await storage.getDiscordTokens(userId);
+
+  if (!tokens) {
+    throw new Error(`No Discord tokens found for user ${userId}`);
+  }
     
   let metadata = {};
   try {
@@ -113,7 +118,7 @@ async function updateMetadata(userId) {
     metadata = {
       cookieseaten: 1483,
       allergictonuts: 0, // 0 for false, 1 for true
-      firstcookiebaked: '2003-12-20',
+      bakingsince: '2003-12-20',
     };
   } catch (e) {
     e.message = `Error fetching external data: ${e.message}`;

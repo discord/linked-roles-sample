@@ -68,7 +68,7 @@ Fetching credentials is covered in detail in the [linked roles tutorial](https:/
 After your credentials are added, you can run your app:
 
 ```
-$ node server.js
+$ node src/server.js
 ```
 
 And, just once, you need to register you connection metadata schema. In a new window, run:
